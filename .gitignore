@@ -1,0 +1,11 @@
+.env
+# Ignore node dependencies
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore uploads or build artifacts
+uploads/
+dist/
+build/
