@@ -132,7 +132,9 @@ app.delete('/delete/:messageId', async (req, res) => {
     }
 });
 
-
+app.get('/', (req, res) => {
+    res.send('API is working!');
+  });
 const getUserProfilePicture = async (username) => {
     const user = await User.findOne({ name: username });
     return user ? user.profilePicture : null;
