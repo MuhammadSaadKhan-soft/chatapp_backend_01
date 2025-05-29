@@ -21,7 +21,7 @@ const io = SocketIO(server, {
   }
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT ;
 
 const routeUpload = require('./route/routeUpload');
 const authRouter = require('./route/auth');
