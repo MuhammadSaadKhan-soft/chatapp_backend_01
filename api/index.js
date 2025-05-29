@@ -1,15 +1,15 @@
 // server.js
-const Room=require('./models/Rooms');
+const Room=require('../models/Rooms');
 const express = require('express');
 const http = require('http');
 const SocketIO = require('socket.io');
-const connectToMongo = require('./db');
+const connectToMongo = require('../db');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const groupMessage = require("./models/groupmodel");
+const groupMessage = require("../models/groupmodel");
 const app = express();
 const server = http.createServer(app);
-const User=require('./models/User');
+const User=require('../models/User');
 
 
 const io = SocketIO(server, {
@@ -23,13 +23,13 @@ const io = SocketIO(server, {
 
 const port = process.env.PORT ;
 
-const routeUpload = require('./route/routeUpload');
-const authRouter = require('./route/auth');
-const githubauthRouter = require('./route/githubAuth');
-const roomsRoute = require("./route/roomsRoute");
-const messagesRouter = require("./route/groupmessages");
-const groupMessageEdit=require("./route/groupmessages");
-const oneToOneRoutes = require("./route/one-to-one-routes")
+const routeUpload = require('../route/routeUpload');
+const authRouter = require('../route/auth');
+const githubauthRouter = require('../route/githubAuth');
+const roomsRoute = require("../route/roomsRoute");
+const messagesRouter = require("../route/groupmessages");
+const groupMessageEdit=require("../route/groupmessages");
+const oneToOneRoutes = require("../route/one-to-one-routes")
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
