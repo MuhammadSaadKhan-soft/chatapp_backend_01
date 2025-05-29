@@ -9,9 +9,8 @@ const cookieParser = require('cookie-parser');
 const groupMessage = require("./models/groupmodel");
 const app = express();
 const server = http.createServer(app);
-const path = require('path');
 const User=require('./models/User');
-const axios = require('axios');
+
 
 const io = SocketIO(server, {
   cors: {
@@ -29,7 +28,6 @@ const authRouter = require('./route/auth');
 const githubauthRouter = require('./route/githubAuth');
 const roomsRoute = require("./route/roomsRoute");
 const messagesRouter = require("./route/groupmessages");
-const audioHandle=require("./route/audioHandlingRoute");
 const groupMessageEdit=require("./route/groupmessages");
 const oneToOneRoutes = require("./route/one-to-one-routes")
 app.use(cors());
@@ -46,7 +44,6 @@ app.use('/api/image', routeUpload);
 app.set('view engine', 'ejs');
 app.use('/api', roomsRoute);
 app.use('/api/messages', messagesRouter);
-app.use("/api/audio",audioHandle);
 app.use('/api/edit',groupMessageEdit)
 app.use("/api", oneToOneRoutes)
 connectToMongo();
